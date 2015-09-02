@@ -6,7 +6,7 @@ import json
 
 def on_connect(mqttc, obj, rc):
  #   mqttc.subscribe("$SYS/#", 0)
-    print("rc: "+str(rc))
+    print("obj: %s, rc: %s" % (str(obj), str(rc)))
 
 def on_message(mqttc, obj, msg):
     d = datetime.datetime.now()
@@ -31,7 +31,8 @@ if __name__ == '__main__':
     mqttc.on_connect = on_connect
     mqttc.on_subscribe = on_subscribe
 
-    mqttc.connect(p[1], 1883, 60)
+    mqttc.username_pw_set('utfj', password='utfj123')
+    mqttc.connect(p[1], 1884, keepalive=60)
 
     mqttc.subscribe("my/topic/string", 0)
 

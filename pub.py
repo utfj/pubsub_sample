@@ -24,8 +24,9 @@ if __name__ == '__main__':
     mqttc.on_message = on_message
     mqttc.on_connect = on_connect
     mqttc.on_publish = on_publish
+    mqttc.username_pw_set('utfj', password='utfj123')
 
-    mqttc.connect(p[1], 1883, 60)
+    mqttc.connect(p[1], 1884, keepalive=60)
     d = datetime.datetime.now()
     msg = {
         "msg": "hello world",
