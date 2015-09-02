@@ -31,8 +31,8 @@ if __name__ == '__main__':
     mqttc.on_connect = on_connect
     mqttc.on_subscribe = on_subscribe
 
-    mqttc.username_pw_set('utfj', password='utfj123')
-    mqttc.connect(p[1], 1884, keepalive=60)
+    mqttc.username_pw_set('xxx', password='xxx')
+    mqttc.connect(p[1], 1883, keepalive=60)
 
     mqttc.subscribe("my/topic/string", 0)
 
